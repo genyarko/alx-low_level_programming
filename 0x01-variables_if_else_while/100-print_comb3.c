@@ -1,5 +1,5 @@
 #include <unistd.h>
-
+#include <stdio.h>
 /**
 * main - Entry point
 *
@@ -26,10 +26,6 @@ ft_putchar(' ');
 ft_putchar(j / 10 + '0');
 ft_putchar(j % 10 + '0');
 if (i != 98)
-{
-ft_putchar(',');
-ft_putchar(' ');
-}
 j++;
 }
 i++;
