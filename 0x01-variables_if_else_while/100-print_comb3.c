@@ -4,14 +4,14 @@
 *
 * Return: Always 0 (Success)
 */
-
-int main(void){
+int main(void)
+{
 int num1, num2;
 /*ASCII code for 0*/
 num1 = 48;
 while (num1 < 58)
 {
-num2=48;
+num2 = 48;
 while (num2 < 58)
 {
 putchar(num1);
