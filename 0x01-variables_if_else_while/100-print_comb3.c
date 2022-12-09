@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include <stdio.h>
 /**
 * main - Entry point
@@ -6,33 +5,23 @@
 * Return: Always 0 (Success)
 */
 
-void ft_putchar(char c)
+int main(void){
+int num1, num2;
+/*ASCII code for 0*/
+num1 = 48;
+while (num1 < 58)
 {
-write(1, &c, 1);
+num2=48;
+while (num2 < 58)
+{
+putchar(num1);
+putchar(num2);
+num2++;
+putchar(',');
+putchar(' ');
 }
-void ft_print_comb2(void)
-{
-int i;
-int j;
-i = 0;
-while (i <= 98)
-{
-j = i + 1;
-while (j <= 99)
-{
-ft_putchar(i / 10 + '0');
-ft_putchar(i % 10 + '0');
-ft_putchar(' ');
-ft_putchar(j / 10 + '0');
-ft_putchar(j % 10 + '0');
-if (i != 98)
-j++;
+num1++;
 }
-i++;
-}
-}
-int main(void)
-{
-ft_print_comb2();
+putchar('\n');
 return (0);
 }
