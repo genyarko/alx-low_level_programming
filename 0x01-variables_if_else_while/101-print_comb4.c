@@ -10,25 +10,29 @@ void ft_putchar(char c)
 {
 write(1, &c, 1);
 }
-void ft_print_comb2(void)
+void ft_print_comb(void)
 {
 int i;
 int j;
+int k;
 i = 0;
-while (i <= 98)
+while (i <= 7)
 {
 j = i + 1;
-while (j <= 99)
+while (j <= 8)
 {
-ft_putchar(i / 10 + '0');
-ft_putchar(i % 10 + '0');
-ft_putchar(' ');
-ft_putchar(j / 10 + '0');
-ft_putchar(j % 10 + '0');
-if (i != 98)
+k = j + 1;
+while (k <= 9)
+{
+ft_putchar(i + '0');
+ft_putchar(j + '0');
+ft_putchar(k + '0');
+if (i != 7)
 {
 ft_putchar(',');
 ft_putchar(' ');
+}
+k++;
 }
 j++;
 }
@@ -37,6 +41,6 @@ i++;
 }
 int main(void)
 {
-ft_print_comb2();
+ft_print_comb();
 return (0);
 }
