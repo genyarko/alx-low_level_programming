@@ -1,28 +1,46 @@
-#include <stdio.h>
+#include <unistd.h>
+
 /**
 * main - Entry point
 *
 * Return: Always 0 (Success)
 */
 
+void ft_putchar(char c)
+{
+write(1, &c, 1);
+}
+void ft_print_comb(void)
+{
+int i;
+int j;
+int k;
+i = 0;
+while (i <= 7)
+{
+j = i + 1;
+while (j <= 8)
+{
+k = j + 1;
+while (k <= 9)
+{
+ft_putchar(i + '0');
+ft_putchar(j + '0');
+ft_putchar(k + '0');
+if (i != 7)
+{
+ft_putchar(',');
+ft_putchar(' ');
+}
+k++;
+}
+j++;
+}
+i++;
+}
+}
 int main(void)
 {
-int num1, num2, num3;
-for (num1 = 0; num2 < 8; num1++)
-for (num2 = num1 + 1; num2 < 9; num2++)
-{
-for (num3 = num2 + 1; num3 < 10; num3++)
-{
-putchar((num1 % 10) + '0');
-putchar((num2 % 10) + '0');
-putchar((num3 % 10) + '0');
-if (num1 == 7 && num2 == 8 && num3 == 9)
-continue;
-putchar(',');
-putchar(' ');
-}
-}
-}
-putchar('\n');
+ft_print_comb();
 return (0);
 }
