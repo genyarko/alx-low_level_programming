@@ -1,55 +1,26 @@
-#include <unistd.h>
-
+#include <stdio.h>
 /**
-* main - Entry point
+* main - Prints all possible combinations of two different digits,
+*        in ascending order, separated by a comma followed by a space.
 *
-* Return: Always 0 (Success)
+* Return: Always 0.
 */
 
-void ft_putchar(char c)
-{
-write(1, &c, 1);
-}
-void ft_putnbr(int nb)
-{
-if (nb < 0)
-{
-ft_putchar('-');
-nb = -nb;
-}
-if (nb >= 10)
-{
-ft_putnbr(nb / 10);
-ft_putnbr(nb % 10);
-}
-else
-ft_putchar(nb + '0');
-}
-void ft_print_comb2(void)
-{
-int i;
-int j;
-i = 0;
-while (i <= 98)
-{
-j = i + 1;
-while (j <= 99)
-{
-ft_putnbr(i);
-ft_putchar(' ');
-ft_putnbr(j);
-if (i != 98)
-{
-ft_putchar(',');
-ft_putchar(' ');
-}
-j++;
-}
-i++;
-}
-}
 int main(void)
 {
-ft_print_comb2();
+int digit1, digit2;
+for (digit1 = 0; digit1 < 9; digit1++)
+{
+for (digit2 = digit1 + 1; digit2 < 10; digit2++)
+{
+putchar((digit1 % 10) + '0');
+putchar((digit2 % 10) + '0');
+if (digit1 == 8 && digit2 == 9)
+continue;
+putchar(',');
+putchar(' ');
+}
+}
+putchar('\n');
 return (0);
 }
