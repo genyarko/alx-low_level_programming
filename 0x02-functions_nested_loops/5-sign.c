@@ -7,17 +7,17 @@
 
 int print_sign(int n)
 {
-while (n > 0)
+if (n > 0)
 {
 putchar('+');
 return (1);
 }
-while (n == 0)
+else if (n == 0)
 {
 putchar('0');
 return (0);
 }
- while (n < 0)
+else (n < 0)
 {
 putchar('-');
 return (-1);
