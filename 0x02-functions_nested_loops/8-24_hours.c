@@ -1,9 +1,10 @@
 #include <stdio.h>
-voidft_putchar(char c)
+#include <unistd.h>
+void ft_putchar(char c)
 {
 write(1, &c, 1);
 }
-voidft_putnbr(int nb)
+void ft_putnbr(int nb)
 {
 if (nb < 0)
 {
@@ -18,7 +19,7 @@ ft_putnbr(nb % 10);
 else
 ft_putchar(nb + '0');
 }
-voidjack_bauer(void)
+void jack_bauer(void)
 {
 inti;
 intj;
