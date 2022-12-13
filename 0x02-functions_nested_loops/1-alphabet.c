@@ -6,6 +6,9 @@
 */
 void print_alphabet(void)
 {
+/**
+*print_alphabet used
+*/
 int i;
 for (i = 'a'; i <= 'z'; i++)
 {
