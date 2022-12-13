@@ -21,8 +21,8 @@ ft_putchar(nb + '0');
 }
 void jack_bauer(void)
 {
-inti;
-intj;
+int i;
+int j;
 i = 0;
 while (i < 24)
 {
