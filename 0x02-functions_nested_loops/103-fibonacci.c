@@ -12,6 +12,6 @@ for (i = 0; i < 11; i++)
 {
 sum += ar[i];
 }
-printf("Sum of array is %d\n", sum);
+printf("%d\n", sum);
 return (0);
 }
