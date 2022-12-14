@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 /**
 * main - prints the largest of 3 integers
@@ -17,17 +18,17 @@ if (a > b && b > c)
 {      
 largest = a;
 }
-else if (c > b)  
-{
-largest = c;
-}
 else if (b > a && a > c)
 {
 largest = b;
 }
-else
+else if (c > a)
 {
 largest = c;
+}
+else
+{
+largest = b;
 }
 return (largest);
 }
