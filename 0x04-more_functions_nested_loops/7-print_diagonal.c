@@ -21,6 +21,6 @@ putchar('\n');
 }
 else
 {
-_putchar('\n');
+putchar('\n');
 }
 }
