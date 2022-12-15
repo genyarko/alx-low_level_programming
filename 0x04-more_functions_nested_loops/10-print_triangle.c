@@ -20,14 +20,14 @@ for (j = 0; j < size; j++)
 k = size - i - 1;
 if (j < k)
 {
-_putchar(' ');
+putchar(' ');
 }
 else
 {
-_putchar('#');
+putchar('#');
 }
 }
-_putchar('\n');
+putchar('\n');
 }
 }
 }
