@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
 * print_triangle - prints a triangle
 * @size: size of triangle
