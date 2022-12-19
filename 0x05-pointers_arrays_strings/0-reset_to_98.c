@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "main.h"
 /**
 * update_int - updates the value of the int pointer to 98
 * @pointer_int: a pointer to an int
