@@ -8,17 +8,8 @@
 */
 int factorial(int n)
 {
-int i;
-long int fact = 1;
-if (n < 0)
-return (-1);
-if (n == 0)
-return (1);
-for (i = 1; i <= n; i++)
-{
-fact = fact * i;
-if (fact > LONG_MAX)
-return (-1);
-}
-return (fact);
+if (n == 0)  
+return 1;  
+else  
+return(n * factorial(n-1));  
 }
