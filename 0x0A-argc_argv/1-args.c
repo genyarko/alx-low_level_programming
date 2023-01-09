@@ -1,12 +1,15 @@
-#include <unistd.h>
-/**                                                                            * main - print the name of the program                                        
-* @argc: Count arguments                                                       * @argv: Arguments                                                             * Return: Always 0 (Success)                                                   
+#include <unistd.h>               
+/**
+* main - prints the number of arguments passed into it.
+* @argc: argument count
+* @argv: arguments
+*
+* Return: 0
 */
 
 int main(int argc, char **argv)
 {
 (void)argv;
-write(1, &argc, 1);
-write(1, "\n", 1);
-return (0);
+printf("%i\n", argc - 1);
+return (0);     
 }
