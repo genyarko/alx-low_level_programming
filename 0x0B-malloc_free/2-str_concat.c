@@ -1,29 +1,30 @@
-#include <stdio.h>
 #include <stdlib.h>
 /**
-* simple_print_buffer - prints buffer in hexa
-* @buffer: the address of memory to print
-* @size: the size of the memory to print
-*
-* Return: Nothing.
+* str_concat - concatenates two strings
+* @s1: string 1
+* @s2: string 2
+* Return: pointer to new string
 */
 
-void simple_print_buffer(char *buffer, unsigned int size)
+char *str_concat(char *s1, char *s2)
 {
-unsigned int i;
-i = 0;
-while (i < size)
-{
-if (i % 10)
-{
-printf(" ");
-}
-if (!(i % 10) && i)
-{
-printf("\n");
-}
-printf("0x%02x", buffer[i]);
-i++;
-}
-printf("\n");
+char *s;
+int i, j, k, l;
+if (s1 == NULL)
+s1 = "";
+if (s2 == NULL)
+s2 = "";
+for (i = 0; s1[i] != '\0'; i++)
+;
+for (j = 0; s2[j] != '\0'; j++)
+;
+s = malloc(sizeof(char) * (i + j + 1));
+if (s == NULL)
+return (NULL);
+for (k = 0; k < i; k++)
+s[k] = s1[k];
+for (l = 0; l < j; l++)
+s[k + l] = s2[l];
+s[k + l] = '\0';
+return (s);
 }
