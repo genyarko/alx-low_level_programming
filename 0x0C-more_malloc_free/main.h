@@ -3,7 +3,8 @@
 #define MAIN_H
 
 
-
+int putchar();
+int putchar(char c);
 void _print(char *str, int l);
 
 char *mul(char n, char *num, int num_index, char *dest, int dest_index);
