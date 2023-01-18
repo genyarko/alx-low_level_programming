@@ -1,6 +1,19 @@
 #include <stdlib.h>
 #include "dog.h"
 /**
+* _strlen - Returns the length of a string
+* @s: String to check
+*
+* Return: Length of the string
+*/
+int _strlen(char *s)
+{
+int i;
+for (i = 0; s[i]; i++)
+;
+return (i);
+}
+/**
  * new_dog - Creates a new dog
  * @name: Name of the new dog
  * @age: Age of the new dog
@@ -43,17 +56,4 @@ new_dog->name = name_copy;
 new_dog->age = age;
 new_dog->owner = owner_copy;
 return (new_dog);
-}
-/**
-* _strlen - Returns the length of a string
-* @s: String to check
-*
-* Return: Length of the string
-*/
-int _strlen(char *s)
-{
-int i;
-for (i = 0; s[i]; i++)
-;
-return (i);
 }
