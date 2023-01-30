@@ -1,4 +1,4 @@
-/**
+#include<stdio.h>/**
 * print_quote() - Prints the quote "You're beat! and yet, you must allow,
 * I bore my house upon my back!" before the main function is executed.
 */
