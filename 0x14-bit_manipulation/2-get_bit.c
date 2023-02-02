@@ -1,13 +1,19 @@
-/**
-* get_bit - returns the value of a bit at a given index
-* @n: number to search
-* @index: index of bit to get
-*
-* Return: value of bit at index or -1 if an error occurred
-*/
-int get_bit(unsigned long int n, unsigned int index)
+#include <stdio.h>
+unsigned int binary_to_uint(const char *b)
 {
-if (index > (sizeof(n) * 8))
-return (-1);
-return ((n >> index) & 1);
+int i = 0;
+unsigned int result = 0;
+if (b == NULL)
+return (0);
+while (b[i] != '\0')
+{
+if (b[i] != '1' && b[i] != '0')
+return (0);
+if (b[i] == '1')
+result = (result << 1) + 1;
+else
+result = result << 1;
+i++;
+}
+return (result);
 }
