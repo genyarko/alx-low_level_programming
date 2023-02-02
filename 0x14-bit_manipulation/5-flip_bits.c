@@ -9,13 +9,13 @@
 */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-    int counter = 0;
-    while (n > 0 || m > 0) 
-    {
-        if ((n & 1) != (m & 1))
-            counter++;
-        n >>= 1;
-        m >>= 1;
-    }
-    return counter;
+int counter = 0;
+while (n > 0 || m > 0) 
+{
+if ((n & 1) != (m & 1))
+counter++;
+n >>= 1;
+m >>= 1;
+}
+return counter;
 }
