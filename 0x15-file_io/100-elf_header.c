@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <elf.h>
+#include <errno.h>
+/**
+* elf_header - displays the information contained in the ELF header at the start of an ELF file
+* @elf_filename: filename of ELF file
+*
+* Return: 0 on success, 98 on failure
+*/
+int elf_header(char *elf_filename)
+{
+int fd, i;
+Elf64_Ehdr ehdr;
+fd = open(elf_filename, O_RDONLY);
+if (fd == -1)
+{
+fprintf(stderr, "Error: %s\n", strerror(errno));
+return (98);
+}
+if (read(fd, &ehdr, sizeof(ehdr)) != sizeof(ehdr))
+{
+fprintf(stderr, "Error: %s\n", strerror(errno));
+close(fd);
+return (98);
+}
+printf("ELF Header:\n");
+printf("Magic:   ");
+for (i = 0; i < EI_NIDENT; i++)
+printf("%02x ", ehdr.e_ident[i]);
+printf("\n");
+printf("Class:                             ELF%d\n", ehdr.e_ident[EI_CLASS]);
+printf("Data:                              %s endian\n",
+ehdr.e_ident[EI_DATA] == ELFDATA2MSB ? "Big" : "Little");
+printf("Version:                           %d %s\n",
+ehdr.e_ident[EI_VERSION],
+ehdr.e_ident[EI_VERSION] == EV_CURRENT ? "(current)" : "(none)");
+printf("OS/ABI:                            %s\n",
+ehdr.e_ident[EI_OSABI] == ELFOSABI_SYSV ? "UNIX - System V" :
+ehdr.e_ident[EI_OSABI] == ELFOSABI_LINUX ? "UNIX - Linux" :
+"<unknown>");
+printf("ABI Version:                       %d\n", ehdr.e_ident[EI_ABIVERSION]);
+printf("Type:                              %s\n",
+ehdr.e_type == ET_EXEC ? "EXEC (Executable file)" :
+ehdr.e_type == ET_DYN ? "DYN (Shared object file)" :
+"<unknown>");
+printf("Entry point address:               0x%0x\n", ehdr.e_entry);
+close(fd);
+return (0);
+}
+/**
+* main - entry point for elf_header
+* @argc: argument count
+* @argv: argument vector
+*
+* Return: 0 on success, 98 on failure
+*/
+int main(int argc, char *argv[])
+{
+if (argc != 2)
+{
+fprintf(stderr, "Usage: elf_header elf_filename\n");
+return (98);
+}
+return (elf_header(argv[1]));
+}
