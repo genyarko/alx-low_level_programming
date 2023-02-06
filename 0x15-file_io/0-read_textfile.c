@@ -1,32 +1,32 @@
+#include "main.h"
 /**
- * read_textfile - reads a text file and prints it to POSIX standard output
+ * create_file -creates an array of chars, and initializes
  *
- * @filename: pointer to file name
- * @letters: number of letters it should read and print
+ * @text_content: is a NULL terminated string to write to the file
+ * @filename: is the name of the file to create
  *
- * Return: actual number of letters it could read and print, 0 on failure
+ * Return: 1 on success, -1 on failure
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	ssize_t len = 0;
-	char *buf = NULL;
+	int o, w, len = 0;
 
-	if (!filename)
-		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-		return (0);
-	buf = malloc(sizeof(char) * letters);
-	if (!buf)
-		return (0);
-	len = read(fd, buf, letters);
-	if (len < 0)
-		return (0);
-	len = write(STDOUT_FILENO, buf, len);
-	if (len < 0 || len != (ssize_t)letters)
-		return (0);
-	free(buf);
-	close(fd);
-	return (len);
+	if (filename == NULL)
+		return (-1);
+
+	if (text_content != NULL)
+	{
+		for (len = 0; text_content[len];)
+			len++;
+	}
+
+	o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	w = write(o, text_content, len);
+
+	if (o == -1 || w == -1)
+		return (-1);
+
+	close(o);
+
+	return (1);
 }
