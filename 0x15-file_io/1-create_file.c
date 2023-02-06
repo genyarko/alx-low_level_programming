@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
+/**
+* create_file -  creates a file with given filename and content.
+* @filename: name of the file to create
+* @text_content: content to write to the file
+* Returns: 1 on success, -1 on failure
+*/
+int create_file(const char *filename, char *text_content)
+{
+int fd;
+int w_ret;
+int ret = 0;
+struct stat st;
+if (filename == NULL)
+return (-1);
+if (stat(filename, &st) == 0)
+{
+fd = open(filename, O_WRONLY | O_TRUNC);
+if (fd == -1)
+return (-1);
+}
+else
+{
+fd = open(filename, O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
+if (fd == -1)
+return (-1);
+}
+if (text_content == NULL)
+text_content = "";
+w_ret = write(fd, text_content, sizeof(text_content));
+if (w_ret == -1)
+ret = -1;
+close(fd);
+return (ret);
+}
