@@ -11,6 +11,9 @@ fi
 for cfile in *.c; do
     gcc -c -Wall -Werror -fpic $cfile
 done
+gcc *.c -c -fPIC
+gcc *.o -shared -o liball.so
+
 
 # Create liball.so from .o files
 gcc -shared -o liball.so *.o
