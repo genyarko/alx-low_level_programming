@@ -1,47 +1,29 @@
-// Library source code:
-#include <stdio.h>
 #include <stdlib.h>
 
-// Function to add two numbers
-int add_two_numbers(int a, int b) {
-	return a + b;
+int add(int a, int b) {
+    return (a + b);
 }
 
-// Function to subtract two numbers
-int subtract_two_numbers(int a, int b) {
-	return a - b;
+int sub(int a, int b) {
+    return (a - b);
 }
 
-// Function to multiply two numbers
-int multiply_two_numbers(int a, int b) {
-	return a * b;
+int mul(int a, int b) {
+    return (a * b);
 }
 
-// Function to divide two numbers
-float divide_two_numbers(int a, int b) {
-	return (float)a / b;
+int div(int a, int b) {
+    return (a / b);
 }
 
-// Export the functions so they can be used in Python
-extern "C" {
-	int add_two_numbers(int, int);
-	int subtract_two_numbers(int, int);
-	int multiply_two_numbers(int, int);
-	float divide_two_numbers(int, int);
+int mod(int a, int b) {
+    return (a % b);
 }
 
-// Compile the library:
-gcc -shared -fPIC -o libmath.so math.c
+int main(void) {
+    return (0);
+}
 
-// Call from Python:
-# Load the library
-import ctypes
-
-# Load the shared library
-lib = ctypes.CDLL('./libmath.so')
-
-# Call the functions
-print(lib.add_two_numbers(2, 3))
-print(lib.subtract_two_numbers(2, 3))
-print(lib.multiply_two_numbers(2, 3))
-print(lib.divide_two_numbers(2, 3))
+// Create dynamic library
+gcc -fPIC -c 100-operations.c 
+gcc -shared -o 100-operations.so 100-operations.o
