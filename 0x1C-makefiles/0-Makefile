@@ -1,0 +1,12 @@
+###########################################################
+
+NAME = school 
+
+all: $(NAME)
+
+$(NAME):
+	gcc -o $(NAME) $(NAME).c 
+
+clean: 
+	rm -f $(NAME)
+  
