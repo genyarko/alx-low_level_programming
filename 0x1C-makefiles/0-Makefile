@@ -1,12 +1,2 @@
-###########################################################
-
-NAME = school 
-
-all: $(NAME)
-
-$(NAME):
-	gcc -o $(NAME) $(NAME).c 
-
-clean: 
-	rm -f $(NAME)
-  
+all : main.c school.c
+	gcc main.c school.c -o school
